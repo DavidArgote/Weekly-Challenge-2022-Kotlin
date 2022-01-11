@@ -20,5 +20,31 @@ package com.mouredev.weeklychallenge2022
  */
 
 fun main() {
-
+    println(fibonacci(50)?.joinToString(","))
+    println()
+    callFibonacciRecursive()
 }
+
+fun fibonacci(limit: Int): List<Long>? {
+    if (limit < 0) return null
+    val listValues = mutableListOf<Long>()
+    listValues.add(0)
+    listValues.add(1)
+
+    for (i in 1 until limit) {
+        listValues.add(listValues[i] + listValues[i - 1])
+    }
+
+    return listValues
+}
+
+fun callFibonacciRecursive() {
+    println(fibonacciRecursive(0, 1, 50))
+}
+
+fun fibonacciRecursive(before: Long, current: Long, limit: Int) : Long {
+    if (limit == 1) return current
+    val newLimit = limit - 1
+    return fibonacciRecursive(current, before + current, newLimit)
+}
+
