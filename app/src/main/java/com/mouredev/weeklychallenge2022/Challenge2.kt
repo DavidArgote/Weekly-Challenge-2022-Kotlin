@@ -35,5 +35,3 @@ fun fibonacci(limit: Int): List<Long>? {
 
     return listValues
 }
-
-
